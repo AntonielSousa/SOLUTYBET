@@ -23,6 +23,7 @@
             right: -120px; 
             top: 50%;
             transform: translateY(-50%);
+            display: none;
         }
         #qrcode-float {
             width: 100px; 
@@ -78,7 +79,6 @@
             <button onclick="loadGame()">Jogar Agora!</button>
         </div>
         <iframe id="game-iframe" class="demo-iframe" style="display:none;" frameborder="0"></iframe>
-    
     </div>
     <div id="deposit" class="second-box">
         <h3>Depósito</h3>
@@ -88,11 +88,11 @@
                 <p class="nota">Aplicativo Atualizado: Julho de 2024</p>
                 <label for="deposit-amount">Valor do Depósito (R$):</label>
                 <input type="number" id="deposit-amount" min="20" step="0.01" value="20.00">
+                <p id="deposit-message" style="color: green; display: none;">Depósito realizado com sucesso!</p>
             </div>
             <div class="right-content">
                 <button onclick="showQRCode()" class="download-button">DEPÓSITO</button>
                 <img src="css/CODE.jpg" alt="QR Code" class="qrcode-image" id="qrcode-float">
-
             </div>
         </div>
     </div>
@@ -141,6 +141,21 @@
     <script>
         function showQRCode() {
             document.getElementById('qrcode-float').style.display = 'block';
+            document.getElementById('deposit-message').style.display = 'none';
+        }
+
+        function hideQRCode() {
+            document.getElementById('qrcode-float').style.display = 'none';
+            document.getElementById('deposit-message').style.display = 'block';
+        }
+
+        function requestDeposit() {
+            var depositAmount = parseFloat(document.getElementById('deposit-amount').value).toFixed(2);
+            if (depositAmount >= 20) {
+                hideQRCode();
+            } else {
+                alert('O valor mínimo para depósito é R$ 20,00.');
+            }
         }
 
         function togglePixKeyInput() {
