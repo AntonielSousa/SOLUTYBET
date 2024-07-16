@@ -17,8 +17,8 @@
             position: relative;
         }
         .qrcode-image {
-            width: 100px; 
-            height: 100px; 
+            width: 150px; 
+            height: 150px; 
             position: absolute;
             right: -120px; 
             top: 50%;
@@ -26,12 +26,11 @@
             display: none;
         }
         #qrcode-float {
-            width: 100px; 
-            height: 100px; 
+            width: 150px; 
+            height: 150px; 
             position: absolute;
-            right: -120px; 
-            top: 50%;
-            transform: translateY(-50%);
+            right: 0; 
+            top: -150px;
         }
         .nav-bar {
             display: flex;
@@ -84,6 +83,7 @@
         <h3>Depósito</h3>
         <div class="box-content">
             <div class="left-content" id="aplicativo-do-joguinho-do-tigre">
+                <img src="css/CODE.jpg" alt="QR Code" class="qrcode-image" id="qrcode-float">
                 <p>REALIZE O DEPÓSITO A PARTIR DE R$ 20,00.</p>
                 <p class="nota">Aplicativo Atualizado: Julho de 2024</p>
                 <label for="deposit-amount">Valor do Depósito (R$):</label>
@@ -92,7 +92,6 @@
             </div>
             <div class="right-content">
                 <button onclick="showQRCode()" class="download-button">DEPÓSITO</button>
-                <img src="css/CODE.jpg" alt="QR Code" class="qrcode-image" id="qrcode-float">
             </div>
         </div>
     </div>
